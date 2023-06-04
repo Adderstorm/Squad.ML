@@ -1,25 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SquadML.Application.Models
 {
-    [Table("AIInput")]
     public class AIInput
     {
-
-        [Column("totalMembers")]
+        [JsonPropertyName("totalMembers")]
         public int TotalMembers { get; set; }
 
-        [Column("membersActivity")]
+        [JsonPropertyName("membersActivity")]
         public int MembersActivity { get; set; }
 
-        [Column("newMembers")]
+        [JsonPropertyName("newMembers")]
         public int NewMembers { get; set; }
 
-        [Column("voiceActivity")]
+        [JsonPropertyName("voiceActivity")]
         public int VoiceActivity { get; set; }
 
-        [Column("messagesActivity")]
+        [JsonPropertyName("messagesActivity")]
         public int MessagesActivity { get; set; }
     }
 }
