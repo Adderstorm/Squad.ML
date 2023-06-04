@@ -1,6 +1,6 @@
 ﻿namespace SquadML.Application.Logger
 {
-    public class Logger
+    public static class Logger
     {
         public static List<Task> LogTasks { get; set; } = new List<Task>();
         private static readonly object _lock = new();
@@ -27,9 +27,8 @@
                     LogTasks = LogTasks.Where(x => !x.IsCanceled && !x.IsCompleted && !x.IsCompletedSuccessfully && !x.IsFaulted).ToList();
                 }
             }));
-
-
         }
+
         private static void PrintSeverityPrefix(LogType severity)
         {
             // Looks like '[Info]' but adds color to the inner text, and restore the old color
