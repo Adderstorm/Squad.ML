@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace SquadML.Application.Models
 {
-    public class AIMessageActivityInput
+    public class AIMessagesActivityInput
     {
         [JsonPropertyName("Label")]
         public int MessagesActivity { get; set; }

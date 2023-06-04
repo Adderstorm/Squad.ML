@@ -2,7 +2,7 @@
 
 namespace SquadML.Application.Models
 {
-    public class AIMemberActivityPred
+    public class AIMembersActivityPred
     {
         [JsonPropertyName("PredictedLabel")]
         public int MembersActivity { get; set; }
