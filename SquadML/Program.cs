@@ -1,4 +1,6 @@
 
+using SquadML.Application.Data;
+
 namespace SquadML
 {
     public class Program
