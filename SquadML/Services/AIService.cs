@@ -9,29 +9,29 @@ namespace SquadML.Application.Services
                 .AddJsonFile("appsettings.json", optional: true)
                 .Build();
 
-        private readonly MLModelEngine<AIMembersActivityInput, AIMembersActivityPred> membirsActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MLModelFilePath"]));
-        private readonly MLModelEngine<AIMembersInput, AIMembersPred> membersEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MLModelFilePath"]));
-        private readonly MLModelEngine<AIVoiceActivityInput, AIVoiceActivityPred> voiceActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MLModelFilePath"]));
-        private readonly MLModelEngine<AIMessagesActivityInput, AIMessagesActivityPred> messagesActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MLModelFilePath"]));
+        private static readonly MLModelEngine<AIMembersActivityInput, AIMembersActivityPred> membersActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MembersActivityMLModelFilePath"]));
+        private static readonly MLModelEngine<AIMembersInput, AIMembersPred> membersEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MembersMLModelFilePath"]));
+        private static readonly MLModelEngine<AIVoiceActivityInput, AIVoiceActivityPred> voiceActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:VoiceActivityMLModelFilePath"]));
+        private static readonly MLModelEngine<AIMessagesActivityInput, AIMessagesActivityPred> messagesActivityEngine = new(modelFilePathName: GetAbsolutePath(_configuration["MLModel:MessagesActivityMLModelFilePath"]));
 
-        public AIMembersPred MembersPred(AIMembersInput input)
+        public static AIMembersPred MembersPred(AIMembersInput input)
         {
-            return;
+            return membersEngine.Predict(input);
         }
 
-        public AIMembersActivityPred ActivityPred(AIMembersActivityInput input)
+        public static AIMembersActivityPred MembersActivityPred(AIMembersActivityInput input)
         {
-            return;
+            return membersActivityEngine.Predict(input); ;
         }
 
-        public AIVoiceActivityPred VoiceActivityPred(AIVoiceActivityInput input)
+        public static AIVoiceActivityPred VoiceActivityPred(AIVoiceActivityInput input)
         {
-            return;
+            return voiceActivityEngine.Predict(input);
         }
 
-        public AIMessagesActivityPred MessagesActivityPred(AIMessagesActivityInput input)
+        public static AIMessagesActivityPred MessagesActivityPred(AIMessagesActivityInput input)
         {
-            return;
+            return messagesActivityEngine.Predict(input);
         }
 
         private static string GetAbsolutePath(string relativePath)

@@ -2,6 +2,7 @@
 using SquadML.Application.Data;
 using SquadML.Application.Models;
 using SquadML.Application.Logging;
+using SquadML.Application.Services;
 
 namespace SquadML.Application.Controllers
 {
@@ -19,50 +20,73 @@ namespace SquadML.Application.Controllers
 
         [ActionName("predictMembers")]
         [HttpGet("{id}")]
-        public ActionResult PredictMembers(long serverID)
+        public ActionResult<AIMembersPred> PredictMembers(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
             if (data == null)
             {
-                Logger.LogInfo($"No info about {serverID} server");
-                return NotFound($"No info about {serverID} server");
+                Logger.LogInfo($"No data about {serverID} server");
+                return NotFound($"No data about {serverID} server");
             }
 
+            AIMembersInput input = new() {
+                MembersActivity = data.MembersActivity,
+                MessagesActivity = data.MessagesActivity,
+                NewMembers = data.NewMembers,
+                VoiceActivity = data.VoiceActivity,
+            };
 
+            AIMembersPred predicted = AIService.MembersPred(input);
 
-            return Ok(/*some data to recieve*/);
+            return Ok(predicted);
         }
 
         [ActionName("predictMembersActivity")]
         [HttpGet("{id}")]
-        public ActionResult PredictMembersActivity(long serverID)
+        public ActionResult<AIMembersActivityPred> PredictMembersActivity(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
             if (data == null)
             {
-                Logger.LogInfo($"No info about {serverID} server");
-                return NotFound($"No info about {serverID} server");
+                Logger.LogInfo($"No data about {serverID} server");
+                return NotFound($"No data about {serverID} server");
             }
 
+            AIMembersActivityInput input = new()
+            {
+                MessagesActivity = data.MessagesActivity,
+                VoiceActivity = data.VoiceActivity,
+                NewMembers = data.NewMembers,
+                TotalMembers = data.TotalMembers,
+            };
 
+            AIMembersActivityPred predicted = AIService.MembersActivityPred(input);
 
-            return Ok(/*some data to recieve*/);
+            return Ok(predicted);
         }
 
         [ActionName("predictVoiceActivity")]
         [HttpGet("{id}")]
-        public ActionResult PredictVoiceActivity(long serverID)
+        public ActionResult<AIVoiceActivityPred> PredictVoiceActivity(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
             if (data == null)
             {
-                Logger.LogInfo($"No info about {serverID} server");
-                return NotFound($"No info about {serverID} server");
+                Logger.LogInfo($"No data about {serverID} server");
+                return NotFound($"No data about {serverID} server");
             }
 
+            AIVoiceActivityInput input = new()
+            {
+                MembersActivity = data.MembersActivity,
+                NewMembers = data.NewMembers,
+                TotalMembers = data.TotalMembers,
+                MessagesActivity = data.MessagesActivity,
+            };
 
+            AIVoiceActivityPred predicted = AIService.VoiceActivityPred(input);
 
-            return Ok(/*some data to recieve*/);
+            return Ok(predicted);
         }
 
         [ActionName("predictMessagesActivity")]
@@ -72,13 +96,21 @@ namespace SquadML.Application.Controllers
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
             if (data == null)
             {
-                Logger.LogInfo($"No info about {serverID} server");
-                return NotFound($"No info about {serverID} server");
+                Logger.LogInfo($"No data about {serverID} server");
+                return NotFound($"No data about {serverID} server");
             }
 
+            AIMessagesActivityInput input = new()
+            {
+                MembersActivity = data.MembersActivity,
+                VoiceActivity = data.VoiceActivity,
+                NewMembers = data.NewMembers,
+                TotalMembers = data.TotalMembers,
+            };
 
+            AIMessagesActivityPred predicted = AIService.MessagesActivityPred(input);
 
-            return Ok(/*some data to recieve*/);
+            return Ok(predicted);
         }
     }
 }
