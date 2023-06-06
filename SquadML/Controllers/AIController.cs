@@ -19,7 +19,7 @@ namespace SquadML.Application.Controllers
         }
 
         [ActionName("predictMembers")]
-        [HttpGet("{id}")]
+        [HttpGet("{serverID}")]
         public ActionResult<AIMembersPred> PredictMembers(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
@@ -42,7 +42,7 @@ namespace SquadML.Application.Controllers
         }
 
         [ActionName("predictMembersActivity")]
-        [HttpGet("{id}")]
+        [HttpGet("{serverID}")]
         public ActionResult<AIMembersActivityPred> PredictMembersActivity(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
@@ -66,7 +66,7 @@ namespace SquadML.Application.Controllers
         }
 
         [ActionName("predictVoiceActivity")]
-        [HttpGet("{id}")]
+        [HttpGet("{serverID}")]
         public ActionResult<AIVoiceActivityPred> PredictVoiceActivity(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
@@ -90,7 +90,7 @@ namespace SquadML.Application.Controllers
         }
 
         [ActionName("predictMessagesActivity")]
-        [HttpGet("{id}")]
+        [HttpGet("{serverID}")]
         public ActionResult PredictMessagesActivity(long serverID)
         {
             AIPrep? data = _context.AIPrep.FirstOrDefault(x => x.Server == serverID);
