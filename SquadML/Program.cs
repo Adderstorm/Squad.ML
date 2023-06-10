@@ -1,7 +1,7 @@
 
-using SquadML.Application.Data;
+using Squad.ML.Application.Data;
 
-namespace SquadML
+namespace Squad.ML
 {
     public class Program
     {

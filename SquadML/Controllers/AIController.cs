@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SquadML.Application.Data;
-using SquadML.Application.Models;
-using SquadML.Application.Logging;
-using SquadML.Application.Services;
+using Squad.ML.Application.Data;
+using Squad.ML.Application.Models;
+using Squad.ML.Application.Logging;
+using Squad.ML.Application.Services;
 
-namespace SquadML.Application.Controllers
+namespace Squad.ML.Application.Controllers
 {
     [Controller]
     [Route("api/[controller]/[action]")]

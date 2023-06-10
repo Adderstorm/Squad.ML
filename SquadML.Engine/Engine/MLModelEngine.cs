@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SquadML.Engine.Engine
+namespace Squad.ML.Engine.Engine
 {
     public class MLModelEngine<TData, TPrediction>
                     where TData : class

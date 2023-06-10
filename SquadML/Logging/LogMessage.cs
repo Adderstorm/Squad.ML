@@ -1,4 +1,4 @@
-﻿namespace SquadML.Application.Logging
+﻿namespace Squad.ML.Application.Logging
 {
     public class LogMessage
     {

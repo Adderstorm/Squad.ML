@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SquadML.Application.Models
+namespace Squad.ML.Application.Models
 {
     public class AIMembersPred
     {

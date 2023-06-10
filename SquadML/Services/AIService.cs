@@ -1,7 +1,7 @@
-﻿using SquadML.Application.Models;
-using SquadML.Engine.Engine;
+﻿using Squad.ML.Application.Models;
+using Squad.ML.Engine.Engine;
 
-namespace SquadML.Application.Services
+namespace Squad.ML.Application.Services
 {
     public class AIService
     {

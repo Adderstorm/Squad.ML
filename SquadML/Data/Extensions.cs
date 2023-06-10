@@ -1,4 +1,4 @@
-﻿namespace SquadML.Application.Data
+﻿namespace Squad.ML.Application.Data
 {
     public static class Extensions
     {

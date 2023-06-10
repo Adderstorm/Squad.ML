@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace SquadML.Application.Models
+namespace Squad.ML.Application.Models
 {
     [Table("AIPrep")]
     public class AIPrep

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SquadML.Application.Models;
+using Squad.ML.Application.Models;
 using System.Collections.Generic;
 
-namespace SquadML.Application.Data
+namespace Squad.ML.Application.Data
 {
     public class SquadAIDbContext : DbContext
     {
