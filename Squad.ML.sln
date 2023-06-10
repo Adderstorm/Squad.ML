@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadML.Application", "SquadML\SquadML.Application.csproj", "{8A85DA66-B9E2-4287-8E39-BA6C69BAD0F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Squad.ML.Application", "SquadML\Squad.ML.Application.csproj", "{8A85DA66-B9E2-4287-8E39-BA6C69BAD0F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquadML.Engine", "SquadML.Engine\SquadML.Engine.csproj", "{0E4A900D-B734-428A-85E3-3237AFC5C4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Squad.ML.Engine", "SquadML.Engine\Squad.ML.Engine.csproj", "{0E4A900D-B734-428A-85E3-3237AFC5C4A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

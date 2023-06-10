@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SquadML.Engine\SquadML.Engine.csproj" />
+    <ProjectReference Include="..\SquadML.Engine\Squad.ML.Engine.csproj" />
   </ItemGroup>
 
 </Project>
