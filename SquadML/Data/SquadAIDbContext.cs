@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Squad.ML.Application.Models;
-using System.Collections.Generic;
 
 namespace Squad.ML.Application.Data
 {

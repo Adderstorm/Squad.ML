@@ -1,4 +1,3 @@
-
 using Squad.ML.Application.Data;
 
 namespace Squad.ML

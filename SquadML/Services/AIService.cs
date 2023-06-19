@@ -1,5 +1,5 @@
 ﻿using Squad.ML.Application.Models;
-using Squad.ML.Engine.Engine;
+using Squad.ML.Engine;
 
 namespace Squad.ML.Application.Services
 {
