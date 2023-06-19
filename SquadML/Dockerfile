@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["SquadML/SquadML.csproj", "SquadML/"]
-RUN dotnet restore "SquadML/SquadML.csproj"
+COPY ["SquadML/Squad.ML.Application.csproj", "SquadML/"]
+RUN dotnet restore "SquadML/Squad.ML.Application.csproj"
 COPY . .
 WORKDIR "/src/SquadML"
-RUN dotnet build "SquadML.csproj" -c Release -o /app/build
+RUN dotnet build "Squad.ML.Application.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SquadML.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Squad.ML.Application.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SquadML.dll"]
+ENTRYPOINT ["dotnet", "Squad.ML.Application.dll"]
